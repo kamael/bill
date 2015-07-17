@@ -13,7 +13,7 @@ bill.py show
 输出相互欠钱情况
 ```
 
-fill.log 格式
+bill.log 格式
 --
 
 TODO
