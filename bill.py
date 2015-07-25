@@ -77,8 +77,6 @@ def main(args):
 
     parse_args(args)
 
-    print(action)
-
     if action == 'show':
         all_out_money = 0
         recv_people = []
