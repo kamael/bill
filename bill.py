@@ -92,21 +92,24 @@ def main(args):
             if result[person] < all_out_money / 3:
                 pay_people.append([person, all_out_money / 3 - result[person]])
 
-        i = 0
-        recv_item = recv_people[i]
-        for pay_item in pay_people:
-            while pay_item[1] > recv_item[1]:
-                pay_item[1] -= recv_item[1]
-                print("%s pay %s %s" % (pay_item[0], recv_item[0], recv_item[1]))
-                i += 1
-                if i > len(recv_people):
-                    print("%s pay NoOne %s" % (pay_item[0], pay_item[1]))
-                    recv_item[1] = 0
-                    break
-                recv_item = recv_people[i]
-            if pay_item[1] < recv_item[1]:
-                recv_item[1] -= pay_item[1]
-                print("%s pay %s %s" % (pay_item[0], recv_item[0], pay_item[1]))
+        if len(recv_people) == 0:
+            pass
+        else:
+            i = 0
+            recv_item = recv_people[i]
+            for pay_item in pay_people:
+                while pay_item[1] > recv_item[1]:
+                    pay_item[1] -= recv_item[1]
+                    print("%s pay %s %s" % (pay_item[0], recv_item[0], recv_item[1]))
+                    i += 1
+                    if i > len(recv_people):
+                        print("%s pay NoOne %s" % (pay_item[0], pay_item[1]))
+                        recv_item[1] = 0
+                        break
+                    recv_item = recv_people[i]
+                if pay_item[1] < recv_item[1]:
+                    recv_item[1] -= pay_item[1]
+                    print("%s pay %s %s" % (pay_item[0], recv_item[0], pay_item[1]))
 
     if action == 'out':
         result[pay_person] += int(money)
