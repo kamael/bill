@@ -13,8 +13,27 @@ bill.py show
 输出相互欠钱情况
 ```
 
-bill.log 格式
+bill.log
 --
 
-TODO
+```
+{
+    pay_person: 'SomeOne',
+    recv_person: 'SomeOne or NoOne',
+    money: "Money"
+},
+
+...
+```
+
+result.log
+--
+
+```
+{
+SomeOne: money,
+SomeOne: money,
+SomeOne: money
+}
+```
 
