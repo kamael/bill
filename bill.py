@@ -70,7 +70,7 @@ def logBill():
     log = {'pay_peron': pay_person,
            'recv_person': recv_person,
            'money': money}
-    billLog.write(json.dumps(log))
+    billLog.write(json.dumps(log) + '\n')
 
 
 def main(args):
@@ -88,9 +88,9 @@ def main(args):
             all_out_money += result[person]
         for person in result:
             if result[person] > all_out_money / 3:
-                recv_people.append((person, result[person] - all_out_money / 3))
+                recv_people.append([person, result[person] - all_out_money / 3])
             if result[person] < all_out_money / 3:
-                pay_people.append((all_out_money / 3 - person, result[person]))
+                pay_people.append([person, all_out_money / 3 - result[person]])
 
         i = 0
         recv_item = recv_people[i]
@@ -110,7 +110,6 @@ def main(args):
 
     if action == 'out':
         result[pay_person] += int(money)
-        resultLog.write(json.dumps(result))
 
     if action == 'to':
         result[pay_person] += int(money)
