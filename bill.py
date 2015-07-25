@@ -22,8 +22,6 @@ resultLog = open('result.log', "r")
 result = json.load(resultLog)
 resultLog.close()
 
-resultLog = open('result.log', "w")
-
 
 def parse_args(args):
 
@@ -113,14 +111,14 @@ def main(args):
     if action == 'out':
         result[pay_person] += int(money)
         resultLog.write(json.dumps(result))
-        logBill()
 
     if action == 'to':
         result[pay_person] += int(money)
         result[recv_person] -= int(money)
-        resultLog.write(json.dumps(result))
-        logBill()
 
+    resultLog = open('result.log', "w")
+    resultLog.write(json.dumps(result))
+    logBill()
 
     resultLog.close()
     billLog.close()
