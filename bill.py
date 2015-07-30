@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 from __future__ import print_function
 import json
 import sys
@@ -74,6 +76,15 @@ def logBill():
 
 
 def main(args):
+
+    global pay_person
+    global recv_person
+    global money
+    global action
+
+    global billLog
+    global resultLog
+    global result
 
     parse_args(args)
 
